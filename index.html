@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
+<title>Sign-up Form</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <main class="sign-up">
+    <div class="sign-up__body">
+    <div class="sign-up__image image-container">
+        <img src="images/forest.jpg" class="image-container__image" alt="">
+        <div class="image-container__title title">
+            <div class="title__body">
+            <img class="title__logo" src="images/odin-logo.png" alt="">
+            <h1 class="title__header">ODIN</h1>
+            </div>
+        </div>
+        <div class="image-container__author">Photo by <a href="#">Halia West</a> on <a href="#">Unsplash</a></div>
+    </div>
+    <section class="sign-up__content">
+        <div class="section section--small">
+        <p class="paragraph--arresting paragraph">This is not real online service! You know need something like in your life to held you realize your deepest dreams. Sign up <em>now</em> to get started</p>
+        <p class="paragraph--arresting paragraph">You <em>know</em> you want to</p>
+        </div>
+        <div class="form section">
+            <h2>Let's do this</h2>
+        <form class="form__body" id="main-form">
+            <fieldset>
+                <legend class="text-hidden">Your name</legend>
+                <ul class="list">
+                    <li class="ui">
+                        <label for="first_name" class="ui__label">First name *</label>
+                        <input type="text" class="ui__input" id="first_name" name="first_name" maxlength="50" required>
+                    </li>
+                    <li class="ui">
+                        <label for="last_name" class="ui__label">Last name</label>
+                        <input type="text" class="ui__input" id="last_name" name="last_name" maxlength="50">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend class="text-hidden">Your contact info</legend>
+                <ul class="list">
+                    <li class="ui">
+                        <label for="email" class="ui__label">Email</label>
+                        <input type="email" class="ui__input" id="email" name="email" maxlength="50">
+                    </li>
+                    <li class="ui">
+                        <label for="phone_number" class="ui__label">Phone number</label>
+                        <input type="tel" class="ui__input" id="phone_number" name="phone_number" maxlength="50">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend class="text-hidden">Your password</legend>
+                <ul class="list">
+                    <li class="ui">
+                        <label for="password" class="ui__label">Password *</label>
+                        <input type="password" class="ui__input" id="password" name="password" maxlength="100" minlength="10" required>
+                    </li>
+                    <li class="ui">
+                        <label for="confirm_password" class="ui__label">Confirm password *</label>
+                        <input type="password" class="ui__input" id="confirm_password" name="confirm_password" maxlength="100" minlength="10" required >
+                    </li>
+                </ul>
+            </fieldset>
+            <p class="unimportant paragraph">* means required field</p>
+        </form>
+        </div>
+        <div class="section">
+            <button type="submit" class="button button--submit" form="main-form">Create account</button>
+            <p class="paragraph">Already have an account? <a href="#" class="link--positive">Log in</a></p>
+        </div>
+    </section>
+</div>
+</main>
+    
+</body>
+</html>

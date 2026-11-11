@@ -1,0 +1,219 @@
+@layer system,reset,base,libraries,main,effects,utilities;
+@layer effects{
+    @layer base,main;
+}
+@layer reset {
+    *,
+    *::before,
+    *::after{
+        box-sizing: border-box;
+    }
+    button,
+    textarea,
+    select,
+    input{
+        font: inherit;
+    }
+    img,
+    picture,
+    canvas,
+    svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    body {
+        margin: unset;
+    }
+}
+@layer base {
+    :root{
+        --bhs-ui-focused: blue;
+        --bhs-ui-invalid: red;
+        --bhs-color-success: rgb(24, 97, 24);
+        --bhs-ui-outline-width: 2px;
+        --bhs-bright-image-text: white;
+        --bhs-font-size-large: 2.5rem;
+        --bhs-small-font-size: 0.8rem;
+        --bhs-bg-color-image-text: rgba(0, 0, 0, 0.5);
+        --bhs-shadow-color: rgb(27, 25, 25);
+        --bhs-neutral-color: rgb(231, 227, 227);
+        --bhs-normal-padding: 1.5em;
+        --bhs-normal-gap: 0.5em;
+        --bhs-button-padding: 0.5em 1em;
+        --bhs-big-gap: 5em;
+        --bhs-normal-border-radius: 0.5em;
+        --bhs-main-color: rgb(250, 244, 244);
+        font-size: clamp(0.785em ,0.5em + 0.6svw, 1.6em);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        accent-color: purple;
+        color-scheme: light;
+    }
+    a:any-link{
+        color: inherit;
+    }
+    fieldset{
+        appearance: none;
+        border-width: initial;
+        border-style: none;
+    }
+    body{
+        background-color: var(--bhs-neutral-color);
+    }
+}
+@layer main{
+    .sign-up{
+        container: sign-up / inline-size;
+    }
+    .sign-up__body{
+        display: flex;
+    }
+    .sign-up__image{
+        flex: 1;
+        min-height: 100lvh;
+    }
+    .sign-up__content{
+        flex: 2;
+        align-self: center;
+    }
+    @container sign-up (width <= 60em){
+        .sign-up__body{
+            flex-direction: column;
+        }
+        .sign-up__image{
+            flex: none;
+            height: 50lvh;
+            min-height: 0;
+        }
+        .sign-up__content{
+            flex:none;
+            align-self: revert;
+        }
+    }
+    .image-container{
+        color: var(--bhs-bright-image-text);
+        position: relative;
+    }
+    .image-container__image{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .image-container__title{
+        position: absolute;
+        inset: 0 0 20%;
+        height: fit-content;
+        margin: auto 0;
+    }
+    .image-container__author{
+        position: absolute;
+        bottom: 0.3em; /*Approximate height for descenders*/
+        width: fit-content;
+        margin: 0 auto;
+        right: 0;
+        left: 0;
+    }
+    .title{
+        font-size: var(--bhs-font-size-large);
+        background-color: var(--bhs-bg-color-image-text);
+        font-family: "Edu QLD Hand";
+    }
+    .title__body{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .title__logo{
+        height: calc(var(--bhs-font-size-large)*3);
+        object-fit: cover;
+        background-color: transparent;
+    }
+    .title__header{
+        font-size: inherit;
+    }
+    .section{
+        padding: var(--bhs-normal-padding);
+    }
+    .section--small{
+        max-width: 50em;
+    }
+    .paragraph{
+        margin: 1rem 0;
+    }
+    .paragraph--arresting{
+        font-weight: 700;
+    }
+    .form{
+        background-color: var(--bhs-main-color);
+    }
+    .form__body{
+        display: flex;
+        flex-direction: column;
+    }
+    .list{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        row-gap: var(--bhs-normal-gap);
+        column-gap: var(--bhs-big-gap);
+        flex-wrap: wrap;
+    }
+    .ui__label{
+        display: block;
+    }
+    .ui__input{
+        display: block;
+    }
+    .button{
+        padding: var(--bhs-button-padding);
+        border-radius: var(--bhs-normal-border-radius);
+        cursor: pointer;
+    }
+    .button--submit{
+        background-color: var(--bhs-color-success);
+        color: var(--bhs-bright-image-text);
+    }
+    .link--positive{
+        text-decoration: none;
+        color: var(--bhs-color-success);
+    }
+    .unimportant{
+        opacity: 0.8;
+        font-size: var(--bhs-small-font-size);
+    }
+}
+@layer effects{
+    @layer base{
+        a:active{
+            color: red;
+        }
+        :focus:is(textarea,select,input){
+            border: var(--bhs-ui-outline-width) solid var(--bhs-ui-focused);
+            box-shadow: -0.1em -0.1em 0.2em var(--bhs-shadow-color);
+        }
+        :user-invalid:is(textarea,select,input){
+        border: var(--bhs-ui-outline-width) solid var(--bhs-ui-invalid);
+        }
+        @media (hover:hover){
+            button:hover{
+                transform: scale(0.97);
+                box-shadow: -0.2em -0.2em 0.2em var(--bhs-shadow-color);
+            }
+        }
+    }
+
+}
+@layer utilities{
+    .text-hidden{
+        width: 1px;
+        height: 1px;
+        margin-left: -1px;
+        overflow: hidden;
+        border-width: 0;
+        white-space: nowrap;
+        display: inline-block;
+        padding: 0;
+    }
+}
